@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fradique's – Cardápio Digital</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: url('fundo-cardapio.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 900px;
+      margin: auto;
+    }
+    .item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .item img {
+      width: 120px;
+      height: auto;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #007f5f;
+      color: white;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-fradiques.png" alt="Fradique's" width="150">
+    <h1>Fradique's</h1>
+    <p>Descongele. Recarregue. Continue.</p>
+  </header>
+  <div class="container">
+    <h2>Escolha suas marmitas</h2>
+    <div class="item">
+      <img src="mockup-carga-proteica.jpg" alt="Carga Proteica">
+      <div>
+        <strong>Carga Proteica</strong><br>
+        Frango grelhado, brócolis, cenoura, arroz integral com chia<br>
+        R$ 13,00<br>
+        <label>Qtd: <input type="number" min="0" id="carga_proteica"></label>
+      </div>
+    </div>
+    <button onclick="enviarPedido()">Finalizar Pedido no WhatsApp</button>
+  </div>
+  <script>
+    function enviarPedido() {
+      const qtd = document.getElementById('carga_proteica').value;
+      let pedido = 'Olá! Gostaria de fazer um pedido:%0A';
+      if (qtd > 0) {
+        pedido += `- ${qtd}x Carga Proteica%0A`;
+      }
+      window.open(`https://wa.me/5562994836492?text=${pedido}`, '_blank');
+    }
+  </script>
+</body>
+</html>
